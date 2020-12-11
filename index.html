@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hangman</title>
+    </head>
+    <body>
+        <h1>Hangman</h1>
+
+        <script type="text/javascript">
+            var word = "MISSISSIPI";
+            var letterPool = ["M", "P"];
+            var wordSoFar = "Word: ";
+            
+            
+            function newLetter() {
+                var lenWord = word.length;
+                for (i=0; i <= lenWord; i++) {
+                    if (letterPool.includes(word.charAt(i))) {
+                        wordSoFar.concat(word.charAt(i));
+                    }
+                    else {
+                        wordSoFar.concat("_");
+                    }
+                }
+                document.write(wordSoFar);
+            }
+            newLetter();
+        </script>
+    </body>
+</html>
