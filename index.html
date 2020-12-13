@@ -6,26 +6,40 @@
     </head>
     <body>
         <h1>Hangman</h1>
+        <p id="word"></p>
+        <p id="attempts">Attempts: </p>
 
         <script type="text/javascript">
-            var word = "MISSISSIPI";
-            var letterPool = ["M", "P"];
-            var wordSoFar = "Word: ";
-            
-            
-            function newLetter() {
+            var word = "MISSISSIPPI";
+            var letterPool = [];
+            var attempts = "Attempts: ";
+            var numAttempts = 14;
+
+            document.onkeyup = function(event) {
+                var letter = event.key.toUpperCase();
+                letterPool.push(letter);
+                updateWord();
+                console.log(letter);
+                console.log(letterPool);
+
+            }
+
+            function updateWord() {
+                var wordSoFar = "";
                 var lenWord = word.length;
-                for (i=0; i <= lenWord; i++) {
+                for (i=0; i < lenWord; i++) {
                     if (letterPool.includes(word.charAt(i))) {
-                        wordSoFar.concat(word.charAt(i));
+                        wordSoFar += (" " + word.charAt(i));
                     }
                     else {
-                        wordSoFar.concat("_");
+                        wordSoFar += " _";
                     }
+                    console.log(wordSoFar);
                 }
-                document.write(wordSoFar);
+                document.getElementById("word").innerHTML = wordSoFar;
+                document.getElementById("attempts").innerHTML = attempts + numAttempts;
+                numAttempts -= 1;
             }
-            newLetter();
         </script>
     </body>
 </html>
