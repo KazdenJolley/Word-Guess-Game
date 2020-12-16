@@ -6,21 +6,51 @@
     </head>
     <body>
         <h1>Hangman</h1>
+        <h3 id="wins">Wins: </h3>
         <p id="word"></p>
         <p id="attempts">Attempts: </p>
 
         <script type="text/javascript">
-            var word = "MISSISSIPPI";
+            var wordList = [
+                "APPROACH",
+                "VARIABLE",
+                "AMERICA",
+                "PSYCHIATRY",
+                "TYLDE",
+                "EXPONENTIAL",
+                "EXTRATERRITORIALITY",
+                "WHEREFORE",
+                "HERETOFORE",
+                "PONTIFICATE",
+                "EXPLETIVE",
+                "DOGMATIC"
+            ]
+            function chooseWord() {
+                var word = wordList[Math.floor(Math.random() * wordList.length)];
+                return word
+            }
+            var word = chooseWord();
+            var compareWord = "";
+            for (i=0; i < word.length; i++) {
+                compareWord += (" " + word.charAt(i));
+            }
             var letterPool = [];
             var attempts = "Attempts: ";
-            var numAttempts = 14;
+            var wins = "WINS: ";
+            var numWins = 0;
+            if (word.length <= 5) {
+                var numAttempts = 10
+            }
+            else {
+                var numAttempts = word.length + 7
+            }
 
             document.onkeyup = function(event) {
                 var letter = event.key.toUpperCase();
                 letterPool.push(letter);
                 updateWord();
-                console.log(letter);
-                console.log(letterPool);
+                // console.log(letter);
+                // console.log(letterPool);
 
             }
 
@@ -34,11 +64,15 @@
                     else {
                         wordSoFar += " _";
                     }
-                    console.log(wordSoFar);
                 }
                 document.getElementById("word").innerHTML = wordSoFar;
                 document.getElementById("attempts").innerHTML = attempts + numAttempts;
                 numAttempts -= 1;
+                if ((wordSoFar == compareWord) & (numAttempts >= 0)) {
+                    alert("Congratulations! You won!");
+                    numWins += 1;
+                    document.getElementById("wins").innerHTML = wins + numWins;
+                }
             }
         </script>
     </body>
