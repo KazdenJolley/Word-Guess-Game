@@ -1,0 +1,24 @@
+body {
+    color: #00FF7F;
+    background-color: black;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 2vw;
+}
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    clear: both;
+    align-items: center;
+}
+
+.heading {
+    color: black;
+    font-size: 8vw;
+    text-shadow: 4px 4px 0px #AFEEEE;
+    mix-blend-mode: screen;
+    animation: fadeIn 2.5s linear forwards;
+  }
+

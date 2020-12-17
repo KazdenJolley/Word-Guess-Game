@@ -3,14 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <title>Hangman</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     </head>
     <body>
-        <h1>Hangman</h1>
-        <p>*Press the space key to generate a new word, then use the other keys to guess different letters*</p>
-        <h3 id="wins">WINS: </h3>
-        <p id="word"></p>
-        <p id="guesses">Guesses: </p>
-        <p id="attempts">Attempts: </p>
+        <div class="container">
+            <h1 class="heading">Hangman</h1>
+            <div>
+                <p>*Press the space key to generate a new word, then use the other keys to guess different letters*</p>
+                <h3 id="wins">WINS: </h3>
+                <p id="word"></p>
+                <p id="guesses">Guesses: </p>
+                <p id="attempts">Attempts: </p>
+            </div>
+        </div>
 
         <script type="text/javascript">
             var wordList = [
